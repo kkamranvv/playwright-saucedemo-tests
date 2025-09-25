@@ -20,7 +20,7 @@ utils/ # Helpers and test data
 
 fixtures/ # Custom Playwright fixtures
 
-reports/ # Reports (e.g., Allure)
+reports/ # Reports (Allure)
 
 ## 🚀 How to Run Tests
 ```bash
