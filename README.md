@@ -15,8 +15,11 @@ The project follows the **Page Object Model (POM)** pattern and covers core e-co
 tests/ # Test cases
 
 pages/ # Page Object Model classes
+
 utils/ # Helpers and test data
+
 fixtures/ # Custom Playwright fixtures
+
 reports/ # Reports (e.g., Allure)
 
 ## 🚀 How to Run Tests
