@@ -20,7 +20,7 @@ test.describe("Cart Tests", async () => {
     await page.waitForTimeout(3000);
   });
 
-  test.only("Remove item from cart", async ({ page }) => {
+  test("Remove item from cart", async ({ page }) => {
     const add = new AddItem(page);
     await add.addItem();
     await add.cartItems();
