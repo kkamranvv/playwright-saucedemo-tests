@@ -1,17 +1,11 @@
-import { test, expect } from "@playwright/test";
-import { LoginPage } from "../pages/LoginPage";
+import { test, expect } from "../fixtures/fixtures";
+
 import { AddItem } from "../pages/AddItemToCart";
 
 import { Checkout } from "../pages/Checkout";
 
 test.describe("Checkout", () => {
-  test.beforeEach(async ({ page }) => {
-    const loginPage = new LoginPage(page);
-    await loginPage.goto();
-    await loginPage.login("standard_user", "secret_sauce");
-  });
-
-  test("Successfull checkout", async ({ page }) => {
+  test("Successfull checkout", async ({ page, loginPage }) => {
     const add = new AddItem(page);
     await add.addItem();
     await add.cartItems();
@@ -36,7 +30,7 @@ test.describe("Checkout", () => {
     );
   });
 
-  test("Checkout with invalid data", async ({ page }) => {
+  test("Checkout with invalid data", async ({ page, loginPage }) => {
     const add = new AddItem(page);
     await add.addItem();
     await add.cartItems();

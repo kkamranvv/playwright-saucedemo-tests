@@ -1,4 +1,4 @@
-import { Page, Locator } from "playwright/test";
+import { Page, Locator } from "@playwright/test";
 
 export class LoginPage {
   readonly page: Page;
@@ -19,11 +19,24 @@ export class LoginPage {
     await this.page.goto("https://www.saucedemo.com/");
   }
 
-  async login(username: string, password: string) {
+  // ✅ for successful logins
+  async loginValidUser(username: string, password: string) {
     await this.usernameInput.fill(username);
     await this.passwordInput.fill(password);
 
+    await Promise.all([
+      this.page.waitForURL(/inventory\.html/, { timeout: 10000 }),
+      this.loginBtn.click(),
+    ]);
+  }
+
+  // ✅ for invalid/locked-out users
+  async loginInvalidUser(username: string, password: string) {
+    await this.usernameInput.fill(username);
+    await this.passwordInput.fill(password);
     await this.loginBtn.click();
+    // Wait for error message instead of URL change
+    await this.errorMessage.waitFor({ state: "visible", timeout: 5000 });
   }
 
   async getErrorText() {

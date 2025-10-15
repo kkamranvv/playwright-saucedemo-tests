@@ -11,7 +11,7 @@ test.describe("Login Tests", () => {
   });
 
   test("Successfull login with valid user", async ({ page }) => {
-    await loginPage.login("standard_user", "secret_sauce");
+    await loginPage.loginValidUser("standard_user", "secret_sauce");
 
     await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html");
 
@@ -19,7 +19,7 @@ test.describe("Login Tests", () => {
   });
 
   test("Login with invalid user", async ({ page }) => {
-    await loginPage.login("123", "secret_sauce");
+    await loginPage.loginInvalidUser("123", "secret_sauce");
 
     const errorMsg = await loginPage.getErrorText();
 
@@ -29,7 +29,7 @@ test.describe("Login Tests", () => {
   });
 
   test("Login with locked out user", async ({ page }) => {
-    await loginPage.login("locked_out_user", "secret_sauce");
+    await loginPage.loginInvalidUser("locked_out_user", "secret_sauce");
 
     const errorMsg = await loginPage.getErrorText();
 
