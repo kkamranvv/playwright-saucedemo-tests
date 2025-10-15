@@ -1,9 +1,9 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "../fixtures/fixtures";
 import { LoginPage } from "../pages/LoginPage";
 import { FilterPrice } from "../pages/FilterItems";
 
 test.describe("Filter", () => {
-  test("Filter price from low to high", async ({ page }) => {
+  test("Filter price from low to high", async ({ page, loginPage }) => {
     const filter = new FilterPrice(page);
     filter.selectLowToHigh();
 
