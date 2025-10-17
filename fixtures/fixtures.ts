@@ -1,7 +1,8 @@
 import { test as base, expect } from "@playwright/test";
 import { LoginPage } from "../pages/LoginPage";
+import { AddItem } from "../pages/AddItemToCart";
 
-export const test = base.extend<{ loginPage: LoginPage }>({
+export const test = base.extend<{ loginPage: LoginPage; cartReady: void }>({
   loginPage: async ({ page }, use) => {
     const loginPage = new LoginPage(page);
     await loginPage.goto();
@@ -10,6 +11,16 @@ export const test = base.extend<{ loginPage: LoginPage }>({
     await expect(page).toHaveURL(/inventory\.html/);
 
     await use(loginPage);
+  },
+
+  cartReady: async ({ page }, use) => {
+    const add = new AddItem(page);
+    await add.addItem();
+    await add.cartItems();
+
+    await expect(page.locator(".shopping_cart_badge")).toBeVisible();
+
+    await use();
   },
 });
 

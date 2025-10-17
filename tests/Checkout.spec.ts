@@ -5,13 +5,7 @@ import { AddItem } from "../pages/AddItemToCart";
 import { Checkout } from "../pages/Checkout";
 
 test.describe("Checkout", () => {
-  test("Successfull checkout", async ({ page, loginPage }) => {
-    const add = new AddItem(page);
-    await add.addItem();
-    await add.cartItems();
-
-    await expect(page.locator(".shopping_cart_badge")).toBeVisible();
-
+  test("Successfull checkout", async ({ page, loginPage, cartReady }) => {
     const checkout = new Checkout(page);
 
     await checkout.clickCheckout();
@@ -30,27 +24,73 @@ test.describe("Checkout", () => {
     );
   });
 
-  test("Checkout with invalid data", async ({ page, loginPage }) => {
-    const add = new AddItem(page);
-    await add.addItem();
-    await add.cartItems();
+  test.describe("Checkout with invalid data", () => {
+    test("Checkout with no data", async ({ page, loginPage, cartReady }) => {
+      const checkout = new Checkout(page);
 
-    await expect(page.locator(".shopping_cart_badge")).toBeVisible();
+      await checkout.clickCheckout();
 
-    const checkout = new Checkout(page);
+      // without filling the data
 
-    await checkout.clickCheckout();
+      await checkout.clickContinue();
 
-    // without filling the data
+      await expect(
+        page.locator(".error-message-container.error")
+      ).toBeVisible();
 
-    await checkout.clickContinue();
+      await expect(page.locator("h3[data-test='error']")).toHaveText(
+        "Error: First Name is required"
+      );
 
-    await expect(page.locator(".error-message-container.error")).toBeVisible();
+      await page.waitForTimeout(2000);
+    });
 
-    await expect(page.locator("h3[data-test='error']")).toHaveText(
-      "Error: First Name is required"
-    );
+    test("Checkout without Last Name And Zip Code", async ({
+      page,
+      loginPage,
+      cartReady,
+    }) => {
+      const checkout = new Checkout(page);
 
-    await page.waitForTimeout(2000);
+      await checkout.clickCheckout();
+
+      await checkout.completeInfo("Kamran");
+
+      await checkout.clickContinue();
+
+      await expect(
+        page.locator(".error-message-container.error")
+      ).toBeVisible();
+
+      await expect(page.locator("h3[data-test='error']")).toHaveText(
+        "Error: Last Name is required"
+      );
+
+      await page.waitForTimeout(2000);
+    });
+
+    test("Checkout without Zip Code", async ({
+      page,
+      loginPage,
+      cartReady,
+    }) => {
+      const checkout = new Checkout(page);
+
+      await checkout.clickCheckout();
+
+      await checkout.completeInfo("Kamran", "Musadirli");
+
+      await checkout.clickContinue();
+
+      await expect(
+        page.locator(".error-message-container.error")
+      ).toBeVisible();
+
+      await expect(page.locator("h3[data-test='error']")).toHaveText(
+        "Error: Postal Code is required"
+      );
+
+      await page.waitForTimeout(2000);
+    });
   });
 });

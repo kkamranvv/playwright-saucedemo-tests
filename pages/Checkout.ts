@@ -13,8 +13,8 @@ export class Checkout {
     this.page = page;
     this.checkoutBtn = page.locator("#checkout");
     this.inputFirstName = page.locator("#first-name");
-    this.inputLastName = page.locator("#last-name");
-    this.postalCode = page.locator("#postal-code");
+    this.inputLastName = page.locator("#last-name") || null;
+    this.postalCode = page.locator("#postal-code") || null;
     this.continueBtn = page.locator("#continue");
     this.finishBtn = page.locator("#finish");
   }
@@ -23,10 +23,10 @@ export class Checkout {
     await this.checkoutBtn.click();
   }
 
-  async completeInfo(first: string, last: string, postal: string) {
-    await this.inputFirstName.fill(first);
-    await this.inputLastName.fill(last);
-    await this.postalCode.fill(postal);
+  async completeInfo(first?: string, last?: string | null, postal?: string) {
+    if (first) await this.inputFirstName.fill(first);
+    if (last) await this.inputLastName.fill(last);
+    if (postal) await this.postalCode.fill(postal);
   }
 
   async clickContinue() {
