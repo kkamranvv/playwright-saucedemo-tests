@@ -16,7 +16,7 @@ The project follows the **Page Object Model (POM)** pattern and covers core e-co
 All manual and automated test cases are documented in Testomat.io.
 You can explore the full list of test cases and descriptions below 👇
 
-[View Test Cases in Testomat.io](https://www.saucedemo.com/)
+[View Test Cases in Testomat.io](https://app.testomat.io/docs/projects/saucedemo-c35a9)
  
 
 ## 📂 Project Structure
