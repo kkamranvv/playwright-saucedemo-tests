@@ -9,6 +9,8 @@
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.55.1",
-    "@types/node": "^24.5.2"
+    "@testomatio/reporter": "^2.3.6",
+    "@types/node": "^24.5.2",
+    "playwright-qase-reporter": "^2.1.6"
   }
 }

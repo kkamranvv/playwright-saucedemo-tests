@@ -19,7 +19,7 @@ test.describe("Login Tests", () => {
   });
 
   test("Login with invalid user", async ({ page }) => {
-    await loginPage.loginInvalidUser("123", "secret_sauce");
+    await loginPage.loginInvalidUser("invalid_user", "secret_sauce");
 
     const errorMsg = await loginPage.getErrorText();
 
