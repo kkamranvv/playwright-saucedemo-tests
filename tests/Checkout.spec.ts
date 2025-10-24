@@ -1,3 +1,4 @@
+import { read } from "fs";
 import { test, expect } from "../fixtures/fixtures";
 
 import { AddItem } from "../pages/AddItemToCart";
@@ -5,19 +6,18 @@ import { AddItem } from "../pages/AddItemToCart";
 import { Checkout } from "../pages/Checkout";
 
 test.describe("Checkout", () => {
-  test("Successfull checkout", async ({ page, loginPage, cartReady }) => {
-    const checkout = new Checkout(page);
+  test("Successfull checkout", async ({ readyForCheckout }) => {
+    const { page, checkoutPage } = readyForCheckout;
 
-    await checkout.clickCheckout();
-    await checkout.completeInfo("Kamran", "Musadirli", "12345");
-    await checkout.clickContinue();
+    await checkoutPage.completeInfo("Kamran", "Musadirli", "12345");
+    await checkoutPage.clickContinue();
     await page.waitForTimeout(2000);
 
     await expect(page).toHaveURL(
       "https://www.saucedemo.com/checkout-step-two.html"
     );
 
-    await checkout.clickFinish();
+    await checkoutPage.clickFinish();
 
     await expect(page.locator(".complete-header")).toHaveText(
       "Thank you for your order!"
@@ -25,14 +25,10 @@ test.describe("Checkout", () => {
   });
 
   test.describe("Checkout with invalid data", () => {
-    test("Checkout with no data", async ({ page, loginPage, cartReady }) => {
-      const checkout = new Checkout(page);
+    test("Checkout with no data", async ({ readyForCheckout }) => {
+      const { page, checkoutPage } = readyForCheckout;
 
-      await checkout.clickCheckout();
-
-      // without filling the data
-
-      await checkout.clickContinue();
+      await checkoutPage.clickContinue();
 
       await expect(
         page.locator(".error-message-container.error")
@@ -46,17 +42,13 @@ test.describe("Checkout", () => {
     });
 
     test("Checkout without Last Name And Zip Code", async ({
-      page,
-      loginPage,
-      cartReady,
+      readyForCheckout,
     }) => {
-      const checkout = new Checkout(page);
+      const { page, checkoutPage } = readyForCheckout;
 
-      await checkout.clickCheckout();
+      await checkoutPage.completeInfo("Kamran");
 
-      await checkout.completeInfo("Kamran");
-
-      await checkout.clickContinue();
+      await checkoutPage.clickContinue();
 
       await expect(
         page.locator(".error-message-container.error")
@@ -69,18 +61,12 @@ test.describe("Checkout", () => {
       await page.waitForTimeout(2000);
     });
 
-    test("Checkout without Zip Code", async ({
-      page,
-      loginPage,
-      cartReady,
-    }) => {
-      const checkout = new Checkout(page);
+    test("Checkout without Zip Code", async ({ readyForCheckout }) => {
+      const { page, checkoutPage } = readyForCheckout;
 
-      await checkout.clickCheckout();
+      await checkoutPage.completeInfo("Kamran", "Musadirli");
 
-      await checkout.completeInfo("Kamran", "Musadirli");
-
-      await checkout.clickContinue();
+      await checkoutPage.clickContinue();
 
       await expect(
         page.locator(".error-message-container.error")

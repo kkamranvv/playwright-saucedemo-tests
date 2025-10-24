@@ -9,6 +9,14 @@ The project follows the **Page Object Model (POM)** pattern and covers core e-co
 - Page Object Model (POM)
 - Allure Report (planned)
 - GitHub Actions (CI/CD)
+- [Testomat.io](https://testomat.io/) — test management & living documentation
+
+## Test Documentation
+
+All manual and automated test cases are documented in Testomat.io.
+You can explore the full list of test cases and descriptions below 👇
+
+[View Test Cases in Testomat.io](https://www.saucedemo.com/)
 
 ## 📂 Project Structure
 
@@ -23,6 +31,7 @@ fixtures/ # Custom Playwright fixtures
 reports/ # Reports (Allure)
 
 ## 🚀 How to Run Tests
+
 ```bash
 # Install dependencies
 npm install
@@ -35,3 +44,4 @@ npx playwright test --headed
 
 # Run a specific test file
 npx playwright test tests/login.spec.ts
+```
