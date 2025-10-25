@@ -1,9 +1,4 @@
-import { read } from "fs";
-import { test, expect } from "../fixtures/fixtures";
-
-import { AddItem } from "../pages/AddItemToCart";
-
-import { Checkout } from "../pages/Checkout";
+import { test, expect } from "../fixtures/index.js";
 
 test.describe("Checkout", () => {
   test("Successfull checkout", async ({ readyForCheckout }) => {

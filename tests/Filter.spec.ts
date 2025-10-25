@@ -1,9 +1,11 @@
-import { test, expect } from "../fixtures/fixtures";
-import { LoginPage } from "../pages/LoginPage";
-import { FilterPrice } from "../pages/FilterItems";
+import { test, expect } from "../fixtures/index.js";
+import { FilterPrice } from "../pages/FilterItems.js";
 
 test.describe("Filter", () => {
-  test("Filter price from low to high", async ({ page, loginPage }) => {
+  test("Filter price from low to high", async ({
+    page,
+    loginPage: _loginPage,
+  }) => {
     const filter = new FilterPrice(page);
     filter.selectLowToHigh();
 
@@ -15,7 +17,10 @@ test.describe("Filter", () => {
     expect(prices).toEqual(sorted);
   });
 
-  test("Filter price from high to low", async ({ page, loginPage }) => {
+  test("Filter price from high to low", async ({
+    page,
+    loginPage: _loginPage,
+  }) => {
     const filter = new FilterPrice(page);
     filter.selectHighToLow();
 
@@ -27,7 +32,10 @@ test.describe("Filter", () => {
     expect(prices).toEqual(sorted);
   });
 
-  test("Filter product Name (A to Z)", async ({ page, loginPage }) => {
+  test("Filter product Name (A to Z)", async ({
+    page,
+    loginPage: _loginPage,
+  }) => {
     const filter = new FilterPrice(page);
     filter.selectNameAtoZ();
 
@@ -39,7 +47,10 @@ test.describe("Filter", () => {
     expect(names).toEqual(sorted);
   });
 
-  test("Filter product Name (Z to A)", async ({ page, loginPage }) => {
+  test("Filter product Name (Z to A)", async ({
+    page,
+    loginPage: _loginPage,
+  }) => {
     const filter = new FilterPrice(page);
     filter.selectNameZtoA();
 

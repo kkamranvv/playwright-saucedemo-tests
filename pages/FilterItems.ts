@@ -1,5 +1,4 @@
 import { Page, Locator } from "playwright/test";
-import { text } from "stream/consumers";
 
 export class FilterPrice {
   readonly page: Page;
@@ -32,13 +31,13 @@ export class FilterPrice {
 
   async getPrices(): Promise<number[]> {
     const texts = await this.prices.allTextContents();
-    console.log(texts);
+
     return texts.map((a) => parseFloat(a.replace("$", "")));
   }
 
   async getProductNames(): Promise<string[]> {
     const texts = await this.productNames.allTextContents();
-    console.log(texts);
+
     return texts.map((t) => t.trim());
   }
 }
