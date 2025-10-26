@@ -1,5 +1,9 @@
 #!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
 
-echo "🔍 Running ESLint on staged files..."
-npx lint-staged
+echo "🔍 Running ESLint..."
+npm run lint || {
+  echo "❌ ESLint check failed. Commit aborted."
+  exit 1
+}
+
+echo "✅ ESLint passed!"

@@ -1,5 +1,10 @@
 #!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
 
 echo "🧪 Running Playwright tests before push..."
-npm test
+
+npm test || {
+  echo "❌ Tests failed. Push aborted."
+  exit 1
+}
+
+echo "✅ All tests passed! Proceeding with push..."
