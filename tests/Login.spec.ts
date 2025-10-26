@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { userData } from "..//utils/data.js";
 import { LoginPage } from "../pages/LoginPage.js";
+import { ENV } from "../utils/env.js";
 
 test.describe("Login Tests", () => {
   let loginPage: LoginPage;
@@ -16,7 +17,7 @@ test.describe("Login Tests", () => {
       userData.validUser.password
     );
 
-    await expect(page).toHaveURL(`${process.env.BASE_URL}inventory.html`);
+    await expect(page).toHaveURL(`${ENV.baseUrl}inventory.html`);
 
     await page.waitForTimeout(3000);
   });
