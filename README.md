@@ -1,24 +1,27 @@
-# Playwright SauceDemo Tests
+# Playwright Automation Tests
 
-UI and API automation tests for [SauceDemo](https://www.saucedemo.com/) using **Playwright + TypeScript**.  
-The project follows the **Page Object Model (POM)** pattern and covers core e-commerce scenarios.
+Comprehensive **UI** and **API** automation testing framework built with **Playwright + TypeScript**.  
+This project combines:
+- 🧭 **UI testing** for [SauceDemo](https://www.saucedemo.com/) using the **Page Object Model (POM)** pattern  
+- 🔗 **API testing** for [Reqres](https://reqres.in/) — a fake REST API for practicing and demonstrating CRUD operations  
 
 ## 🛠 Tech Stack
 
 - [Playwright](https://playwright.dev/) (TypeScript)
 - Page Object Model (POM)
-- Allure Report (planned)
-- GitHub Actions (CI/CD)
 - [Testomat.io](https://testomat.io/) — test management & living documentation
+- GitHub Actions — CI/CD pipeline
+- ESLint + Husky — code quality & pre-commit checks
+- Allure Report *(planned)*
 
-## Test Documentation
+## 🧪 Test Documentation
 
 All manual and automated test cases are documented in Testomat.io.
 You can explore the full list of test cases and descriptions below 👇
 
 [View Test Cases in Testomat.io](https://app.testomat.io/docs/projects/saucedemo-c35a9)
 
-## API Reference
+## 🌐 API Reference
 
 API tests are based on the [Reqres API](https://reqres.in/api-docs/) — a fake REST API for testing and prototyping.  
 It’s used to demonstrate CRUD operations (GET, POST, PUT, DELETE) in the `tests/api/reqres/` folder.
