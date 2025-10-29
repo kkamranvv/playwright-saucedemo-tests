@@ -1,5 +1,5 @@
-import { test, expect } from "../fixtures/index.js";
-import { FilterPrice } from "../pages/FilterItems.js";
+import { test, expect } from "../../fixtures/index.js";
+import { FilterPrice } from "../../pages/FilterItems.js";
 
 test.describe("Filter", () => {
   test("Filter price from low to high", async ({

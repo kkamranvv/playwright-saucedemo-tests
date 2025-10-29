@@ -1,8 +1,8 @@
-import { test, expect } from "../fixtures/index.js";
+import { test, expect } from "../../fixtures/index.js";
 
-import { AddItem } from "../pages/AddItemToCart.js";
+import { AddItem } from "../../pages/AddItemToCart.js";
 
-import { RemoveItem } from "../pages/RemoveItemFromCart.js";
+import { RemoveItem } from "../../pages/RemoveItemFromCart.js";
 
 test.describe("Cart Tests", async () => {
   test("Add item to cart", async ({ page, loginPage: _loginPage }) => {

@@ -1,4 +1,4 @@
-import { test, expect } from "../fixtures/index.js";
+import { test, expect } from "../../fixtures/index.js";
 
 test.describe("Checkout", () => {
   test("Successfull checkout", async ({ readyForCheckout }) => {

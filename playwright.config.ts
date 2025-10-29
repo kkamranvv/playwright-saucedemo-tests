@@ -7,12 +7,13 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   reporter: [
     ["html"],
-    [
-      "@testomatio/reporter/playwright",
-      {
-        apiKey: ENV.testomatApiKey,
-      },
-    ],
+    // [
+    //   "@testomatio/reporter/playwright",
+    //   {
+    //     apiKey: ENV.testomatApiKey,
+    //   },
+    // ],
+    ["list"],
   ],
   use: {
     baseURL: ENV.baseUrl,
