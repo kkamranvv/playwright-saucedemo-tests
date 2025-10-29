@@ -18,6 +18,11 @@ You can explore the full list of test cases and descriptions below 👇
 
 [View Test Cases in Testomat.io](https://app.testomat.io/docs/projects/saucedemo-c35a9)
 
+## API Reference
+
+API tests are based on the [Reqres API](https://reqres.in/api-docs/) — a fake REST API for testing and prototyping.  
+It’s used to demonstrate CRUD operations (GET, POST, PUT, DELETE) in the `tests/api/reqres/` folder.
+
 ## 📂 Project Structure
 
 tests/ # Test cases
