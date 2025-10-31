@@ -18,6 +18,10 @@ export default defineConfig({
   use: {
     baseURL: ENV.baseUrl,
     trace: "on-first-retry",
+    extraHTTPHeaders: {
+      "x-api-key": "reqres-free-v1",
+      "Content-Type": "application/json",
+    },
   },
   projects: [
     {

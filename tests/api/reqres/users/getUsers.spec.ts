@@ -1,11 +1,7 @@
 import { test, expect } from "@playwright/test";
 
-test("GET users", async ({ request }) => {
-  const usersResponse = await request.get("https://reqres.in/api/users", {
-    headers: {
-      "x-api-key": "reqres-free-v1",
-    },
-  });
+test("GET users list", async ({ request }) => {
+  const usersResponse = await request.get("https://reqres.in/api/users");
 
   const usersResponseJSON = await usersResponse.json();
 
