@@ -17,7 +17,7 @@ export class LoginPage {
   }
 
   async goto() {
-    await this.page.goto(ENV.baseUrl);
+    await this.page.goto(ENV.uiBaseUrl);
   }
 
   // ✅ for successful logins
