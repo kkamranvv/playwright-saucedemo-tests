@@ -17,7 +17,7 @@ test.describe("Login Tests", () => {
       userData.validUser.password
     );
 
-    await expect(page).toHaveURL(`${ENV.baseUrl}inventory.html`);
+    await expect(page).toHaveURL(`${ENV.uiBaseUrl}inventory.html`);
 
     await page.waitForTimeout(3000);
   });

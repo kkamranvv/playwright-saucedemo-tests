@@ -1,7 +1,8 @@
 import { test, expect } from "@playwright/test";
+import { endpoints } from "../utils/endpoints.js";
 
 test("Register User", async ({ request }) => {
-  const registerUserRes = await request.post("https://reqres.in/api/register", {
+  const registerUserRes = await request.post(endpoints.register, {
     data: {
       email: "eve.holt@reqres.in",
       password: "pistol",

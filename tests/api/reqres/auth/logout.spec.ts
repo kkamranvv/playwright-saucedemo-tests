@@ -1,7 +1,8 @@
 import { test, expect } from "@playwright/test";
+import { endpoints } from "../utils/endpoints.js";
 
 test("Logout User", async ({ request }) => {
-  const logoutUserRes = await request.post("https://reqres.in/api/logout", {
+  const logoutUserRes = await request.post(endpoints.logout, {
     data: {},
   });
 

@@ -1,7 +1,8 @@
 import { test, expect } from "@playwright/test";
+import { endpoints } from "../utils/endpoints.js";
 
 test("GET resource list", async ({ request }) => {
-  const resourceResponse = await request.get("https://reqres.in/api/resource", {
+  const resourceResponse = await request.get(endpoints.resource, {
     params: {
       page: 2,
       per_page: 3,

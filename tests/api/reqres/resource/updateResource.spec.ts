@@ -1,8 +1,9 @@
 import { test, expect } from "@playwright/test";
+import { endpoints } from "../utils/endpoints.js";
 
 test.describe("Update Resource API", () => {
   test("Should update resource with PUT", async ({ request }) => {
-    const response = await request.put("https://reqres.in/api/resource/2", {
+    const response = await request.put(endpoints.resourceId(2), {
       data: {
         name: "Kamran",
         year: 2008,
@@ -18,7 +19,7 @@ test.describe("Update Resource API", () => {
   });
 
   test("Should update resource with PATCH", async ({ request }) => {
-    const response = await request.patch("https://reqres.in/api/resource/2", {
+    const response = await request.patch(endpoints.resourceId(2), {
       data: {
         color: "#FFF231",
       },

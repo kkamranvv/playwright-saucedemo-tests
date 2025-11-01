@@ -1,8 +1,9 @@
 import { test, expect } from "@playwright/test";
+import { endpoints } from "../utils/endpoints.js";
 
 test.describe("Update User API", () => {
   test("Should update user with PUT", async ({ request }) => {
-    const response = await request.put("https://reqres.in/api/users/2", {
+    const response = await request.put(endpoints.userById(2), {
       data: {
         email: "kamran@gmail.com",
         first_name: "Kamran",
@@ -19,7 +20,7 @@ test.describe("Update User API", () => {
   });
 
   test("Should update user with PATCH", async ({ request }) => {
-    const response = await request.patch("https://reqres.in/api/users/2", {
+    const response = await request.patch(endpoints.userById(2), {
       data: {
         last_name: "Nasiyati",
       },

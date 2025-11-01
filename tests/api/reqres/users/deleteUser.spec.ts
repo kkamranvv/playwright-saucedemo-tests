@@ -1,7 +1,8 @@
 import { test, expect } from "@playwright/test";
+import { endpoints } from "../utils/endpoints.js";
 
 test("Delete user", async ({ request }) => {
-  const deleteUserRes = await request.delete("https://reqres.in/api/users/8");
+  const response = await request.delete(endpoints.userById(2));
 
-  expect(deleteUserRes.status()).toBe(204);
+  expect(response.status()).toBe(204);
 });

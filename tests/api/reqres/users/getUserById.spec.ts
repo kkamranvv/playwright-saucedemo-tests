@@ -1,7 +1,8 @@
 import { test, expect } from "@playwright/test";
+import { endpoints } from "../utils/endpoints.js";
 
 test("Get user by id", async ({ request }) => {
-  const userByIdRepsonse = await request.get("https://reqres.in/api/users/1");
+  const userByIdRepsonse = await request.get(endpoints.userById(2));
 
   const userByIdRepsonseJSON = await userByIdRepsonse.json();
 

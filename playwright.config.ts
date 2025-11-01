@@ -5,28 +5,26 @@ export default defineConfig({
   testDir: "./tests",
   fullyParallel: false,
   retries: process.env.CI ? 2 : 0,
-  reporter: [
-    ["html"],
-    // [
-    //   "@testomatio/reporter/playwright",
-    //   {
-    //     apiKey: ENV.testomatApiKey,
-    //   },
-    // ],
-    ["list"],
-  ],
-  use: {
-    baseURL: ENV.baseUrl,
-    trace: "on-first-retry",
-    extraHTTPHeaders: {
-      "x-api-key": "reqres-free-v1",
-      "Content-Type": "application/json",
-    },
-  },
+  reporter: [["html"], ["list"]],
   projects: [
     {
-      name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
+      name: "ui-tests",
+      testDir: "./tests/ui",
+      use: {
+        baseURL: ENV.uiBaseUrl,
+        ...devices["Desktop Chrome"],
+      },
+    },
+    {
+      name: "api-tests",
+      testDir: "./tests/api",
+      use: {
+        baseURL: ENV.apiBaseUrl,
+        extraHTTPHeaders: {
+          "x-api-key": "reqres-free-v1",
+          "Content-Type": "application/json",
+        },
+      },
     },
   ],
 });
