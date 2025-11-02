@@ -2,8 +2,9 @@
 
 Comprehensive **UI** and **API** automation testing framework built with **Playwright + TypeScript**.  
 This project combines:
-- 🧭 **UI testing** for [SauceDemo](https://www.saucedemo.com/) using the **Page Object Model (POM)** pattern  
-- 🔗 **API testing** for [Reqres](https://reqres.in/) — a fake REST API for practicing and demonstrating CRUD operations  
+
+- 🧭 **UI testing** for [SauceDemo](https://www.saucedemo.com/) using the **Page Object Model (POM)** pattern
+- 🔗 **API testing** for [Reqres](https://reqres.in/) — a fake REST API for practicing and demonstrating CRUD operations
 
 ## 🛠 Tech Stack
 
@@ -12,7 +13,7 @@ This project combines:
 - [Testomat.io](https://testomat.io/) — test management & living documentation
 - GitHub Actions — CI/CD pipeline
 - ESLint + Husky — code quality & pre-commit checks
-- Allure Report *(planned)*
+- Allure Report
 
 ## 🧪 Test Documentation
 

@@ -1,3 +1,4 @@
+import "allure-playwright";
 import { defineConfig, devices } from "@playwright/test";
 import { ENV } from "./utils/env.js";
 
@@ -5,7 +6,10 @@ export default defineConfig({
   testDir: "./tests",
   fullyParallel: false,
   retries: process.env.CI ? 2 : 0,
-  reporter: [["html"], ["list"]],
+  reporter: [
+    ["list"],
+    ["allure-playwright", { outputFolder: "reports/allure-results" }],
+  ],
   projects: [
     {
       name: "ui-tests",
