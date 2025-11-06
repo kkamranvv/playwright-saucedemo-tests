@@ -1,10 +1,13 @@
 import { test, expect } from "@playwright/test";
 import { endpoints } from "../utils/endpoints.js";
+import { testData } from "../testData.js";
 
 test("Unlink Pro subscription", async ({ request }) => {
+  const { clerkEmail } = testData;
+
   const unlink = await request.post(endpoints.unlink, {
     data: {
-      email: "user@example.com",
+      clerkEmail,
     },
   });
 

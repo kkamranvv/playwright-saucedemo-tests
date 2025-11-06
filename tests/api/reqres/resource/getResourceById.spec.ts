@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { endpoints } from "../utils/endpoints.js";
 
-test("GET resource list", async ({ request }) => {
+test("GET resource by id", async ({ request }) => {
   const resourceResponse = await request.get(endpoints.resourceId(2), {
     params: {
       page: 2,

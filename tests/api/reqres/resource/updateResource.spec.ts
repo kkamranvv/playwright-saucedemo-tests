@@ -1,12 +1,16 @@
 import { test, expect } from "@playwright/test";
 import { endpoints } from "../utils/endpoints.js";
+import { testData } from "../testData.js";
 
 test.describe("Update Resource API", () => {
+  const { name, year } = testData.resource.updatePut;
+  const { color } = testData.resource.updatePatch;
+
   test("Should update resource with PUT", async ({ request }) => {
     const response = await request.put(endpoints.resourceId(2), {
       data: {
-        name: "Kamran",
-        year: 2008,
+        name,
+        year,
       },
     });
 
@@ -21,7 +25,7 @@ test.describe("Update Resource API", () => {
   test("Should update resource with PATCH", async ({ request }) => {
     const response = await request.patch(endpoints.resourceId(2), {
       data: {
-        color: "#FFF231",
+        color,
       },
     });
 
@@ -30,6 +34,6 @@ test.describe("Update Resource API", () => {
 
     console.log(body);
 
-    expect(body).toHaveProperty("color", "#FFF231");
+    expect(body).toHaveProperty("color", "#FFF2");
   });
 });

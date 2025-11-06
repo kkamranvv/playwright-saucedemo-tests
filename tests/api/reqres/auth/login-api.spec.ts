@@ -1,11 +1,14 @@
 import { test, expect } from "@playwright/test";
 import { endpoints } from "../utils/endpoints.js";
+import { testData } from "../testData.js";
 
 test("Login User", async ({ request }) => {
+  const { email, password } = testData.auth.login;
+
   const loginUserRes = await request.post(endpoints.login, {
     data: {
-      email: "eve.holt@reqres.in",
-      password: "cityslicka",
+      email,
+      password,
     },
   });
 

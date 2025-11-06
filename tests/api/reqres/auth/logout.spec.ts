@@ -1,9 +1,12 @@
 import { test, expect } from "@playwright/test";
 import { endpoints } from "../utils/endpoints.js";
+import { testData } from "../testData.js";
 
 test("Logout User", async ({ request }) => {
+  const { logout } = testData.auth;
+
   const logoutUserRes = await request.post(endpoints.logout, {
-    data: {},
+    data: logout,
   });
 
   const logoutUserResJSON = await logoutUserRes.json();
