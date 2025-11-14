@@ -32,11 +32,12 @@ export default defineConfig({
     },
     {
       name: "api-tests-jsonplaceholder",
-      testDir: "./tests/api/jsonPlaceHolder",
+      testDir: "./tests/api/jsonplaceholder",
       use: {
         baseURL: ENV.apiBaseUrlJsonPlaceHolder,
         extraHTTPHeaders: {
           "Content-type": "application/json; charset=UTF-8",
+          "User-Agent": "Playwright Test Runner",
         },
       },
     },
