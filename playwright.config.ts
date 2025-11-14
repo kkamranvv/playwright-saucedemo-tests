@@ -20,13 +20,23 @@ export default defineConfig({
       },
     },
     {
-      name: "api-tests",
-      testDir: "./tests/api",
+      name: "api-tests-reqres",
+      testDir: "./tests/api/reqres",
       use: {
-        baseURL: ENV.apiBaseUrl,
+        baseURL: ENV.apiBaseUrlReqres,
         extraHTTPHeaders: {
           "x-api-key": "reqres-free-v1",
           "Content-Type": "application/json",
+        },
+      },
+    },
+    {
+      name: "api-tests-jsonplaceholder",
+      testDir: "./tests/api/jsonPlaceHolder",
+      use: {
+        baseURL: ENV.apiBaseUrlJsonPlaceHolder,
+        extraHTTPHeaders: {
+          "Content-type": "application/json; charset=UTF-8",
         },
       },
     },

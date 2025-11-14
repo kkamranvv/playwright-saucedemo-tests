@@ -1,0 +1,15 @@
+export const endpoints = {
+  posts: "posts",
+  postById: (postId: number) => `posts/${postId}`,
+  comments: "comments",
+  commentById: (commentId: number) => `comments/${commentId}`,
+  commentsByPostId: (postId: number) => `posts/${postId}/comments`,
+  albums: "albums",
+  albumsById: (albumId: number) => `albums/${albumId}`,
+  photos: "photos",
+  photoById: (photoId: number) => `photos/${photoId}`,
+  todos: "todos",
+  todoById: (todoId: number) => `todos/${todoId}`,
+  users: "users",
+  userById: (userId: number) => `users/${userId}`,
+};
