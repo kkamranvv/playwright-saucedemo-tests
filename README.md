@@ -4,7 +4,9 @@ Comprehensive **UI** and **API** automation testing framework built with **Playw
 This project combines:
 
 - 🧭 **UI testing** for [SauceDemo](https://www.saucedemo.com/) using the **Page Object Model (POM)** pattern
+- 🧭 **UI testing** for [OrangeHRM](https://opensource-demo.orangehrmlive.com/web/index.php/auth/login)
 - 🔗 **API testing** for [Reqres](https://reqres.in/) — a fake REST API for practicing and demonstrating CRUD operations
+- 🔗 **API testing** for [JSONPlaceholder](https://jsonplaceholder.typicode.com/) — extended API tests for posts, comments, users, etc.
 
 ## 🛠 Tech Stack
 

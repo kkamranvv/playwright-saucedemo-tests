@@ -1,5 +1,4 @@
 import { Page, Locator } from "@playwright/test";
-import { ENV } from "../../../env.js";
 
 export class AddEmployee {
   readonly page: Page;
