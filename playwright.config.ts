@@ -1,6 +1,6 @@
 import "allure-playwright";
 import { defineConfig, devices } from "@playwright/test";
-import { ENV } from "./utils/env.js";
+import { ENV } from "./env.js";
 
 export default defineConfig({
   testDir: "./tests",
@@ -13,9 +13,17 @@ export default defineConfig({
   projects: [
     {
       name: "ui-tests",
-      testDir: "./tests/ui",
+      testDir: "./tests/ui/saucedemo",
       use: {
-        baseURL: ENV.uiBaseUrl,
+        baseURL: ENV.uiSaucedemoUrl,
+        ...devices["Desktop Chrome"],
+      },
+    },
+    {
+      name: "ui-tests",
+      testDir: "./tests/ui/orangehrm",
+      use: {
+        baseURL: ENV.uiOrangeHRMUrl,
         ...devices["Desktop Chrome"],
       },
     },
@@ -23,7 +31,7 @@ export default defineConfig({
       name: "api-tests-reqres",
       testDir: "./tests/api/reqres",
       use: {
-        baseURL: ENV.apiBaseUrlReqres,
+        baseURL: ENV.apiReqresUrl,
         extraHTTPHeaders: {
           "x-api-key": "reqres-free-v1",
           "Content-Type": "application/json",
@@ -34,7 +42,7 @@ export default defineConfig({
       name: "api-tests-jsonplaceholder",
       testDir: "./tests/api/jsonplaceholder",
       use: {
-        baseURL: ENV.apiBaseUrlJsonPlaceHolder,
+        baseURL: ENV.apiJsonPlaceHolderUrl,
         extraHTTPHeaders: {
           "Content-type": "application/json; charset=UTF-8",
           "User-Agent": "Playwright Test Runner",

@@ -30,7 +30,10 @@ export default [
     rules: {
       "@typescript-eslint/no-unused-vars": [
         "warn",
-        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_|responseJSON",
+        },
       ],
       "no-unused-vars": "off",
       "no-console": "off",
@@ -38,6 +41,7 @@ export default [
       "playwright/no-focused-test": "error",
       "playwright/prefer-locator": "warn",
     },
+
     ignores: [
       "node_modules/",
       "dist/",

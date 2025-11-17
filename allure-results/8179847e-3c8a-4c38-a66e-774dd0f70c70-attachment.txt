@@ -1,0 +1,1 @@
+locator('//h6[normalize-space()=\'Kamran Musadirli\']')
