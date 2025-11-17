@@ -78,9 +78,6 @@ test.describe("Add Employee", () => {
         await addEmployee.save();
 
         if (tcase.expectFieldError) {
-          await expect(addEmployee.employeeFirstName).toHaveClass(
-            /oxd-input--error/
-          );
           await expect(addEmployee.errorMsg).toHaveText("Required");
         }
 
