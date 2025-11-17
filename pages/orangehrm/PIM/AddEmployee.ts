@@ -15,7 +15,9 @@ export class AddEmployee {
   readonly statusEnabledRadio: Locator;
   readonly statusDisabledRadio: Locator;
   readonly saveBtn: Locator;
-  readonly errorMsg: Locator;
+  readonly firstNameError: Locator;
+  readonly lastNameError: Locator;
+
   readonly duplicateEmployeeIdError: Locator;
 
   constructor(page: Page) {
@@ -56,10 +58,16 @@ export class AddEmployee {
       "//label[normalize-space()='Disabled']"
     );
 
-    this.errorMsg = page.locator(".oxd-input-field-error-message");
-
     this.duplicateEmployeeIdError = page.getByText(
       "Employee Id already exists"
+    );
+
+    this.firstNameError = page.locator(
+      "//input[@placeholder='First Name']/ancestor::div[contains(@class,'oxd-input-group')]//span[contains(@class,'oxd-input-field-error-message')]"
+    );
+
+    this.lastNameError = page.locator(
+      "//input[@placeholder='Last Name']/ancestor::div[contains(@class,'oxd-input-group')]//span[contains(@class,'oxd-input-field-error-message')]"
     );
 
     this.saveBtn = page.locator("//button[normalize-space()='Save']");

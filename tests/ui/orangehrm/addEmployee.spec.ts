@@ -78,7 +78,13 @@ test.describe("Add Employee", () => {
         await addEmployee.save();
 
         if (tcase.expectFieldError) {
-          await expect(addEmployee.errorMsg).toHaveText("Required");
+          if (tcase.firstName === "") {
+            await expect(addEmployee.firstNameError).toHaveText("Required");
+          }
+
+          if (tcase.lastName === "") {
+            await expect(addEmployee.lastNameError).toHaveText("Required");
+          }
         }
 
         if (tcase.expectGlobalError) {
