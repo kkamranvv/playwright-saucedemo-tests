@@ -126,10 +126,6 @@ export class AddEmployee {
     await this.saveBtn.click();
   }
 
-  async getErrorText() {
-    return this.errorMsg.textContent();
-  }
-
   async getDuplicateIdError() {
     return this.duplicateEmployeeIdError.textContent();
   }

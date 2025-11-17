@@ -3,6 +3,8 @@ import { userData } from "./utils/data.js";
 import { LoginPage } from "../../../pages/orangehrm/LoginPage.js";
 
 test.describe("Login Tests", () => {
+  test.skip(process.env.SKIP_ORANGEHRM === "true", "Skipping OrangeHRM tests");
+
   let loginPage: LoginPage;
 
   test.beforeEach(async ({ page }) => {

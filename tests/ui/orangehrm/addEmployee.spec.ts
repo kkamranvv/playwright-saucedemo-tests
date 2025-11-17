@@ -5,6 +5,8 @@ import { employee } from "./utils/data.js";
 import { negativeEmployeeCases } from "./utils/negativeEmployeeCases.js";
 
 test.describe("Add Employee", () => {
+  test.skip(process.env.SKIP_ORANGEHRM === "true", "Skipping OrangeHRM tests");
+
   test("Add Employee", async ({ page, login }) => {
     const pimPage = new PIMPage(login);
     await pimPage.goto();
