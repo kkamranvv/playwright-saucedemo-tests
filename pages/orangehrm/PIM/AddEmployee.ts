@@ -58,8 +58,8 @@ export class AddEmployee {
 
     this.errorMsg = page.locator(".oxd-input-field-error-message");
 
-    this.duplicateEmployeeIdError = page.locator(
-      "//span[@class='oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message']"
+    this.duplicateEmployeeIdError = page.getByText(
+      "Employee Id already exists"
     );
 
     this.saveBtn = page.locator("//button[normalize-space()='Save']");

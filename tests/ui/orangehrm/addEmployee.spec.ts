@@ -78,12 +78,14 @@ test.describe("Add Employee", () => {
         await addEmployee.save();
 
         if (tcase.expectFieldError) {
-          await expect(page.locator("input.oxd-input--error")).toBeVisible();
+          await expect(addEmployee.employeeFirstName).toHaveClass(
+            /oxd-input--error/
+          );
           await expect(addEmployee.errorMsg).toHaveText("Required");
         }
 
-        await page.pause();
         if (tcase.expectGlobalError) {
+          await expect(addEmployee.duplicateEmployeeIdError).toBeVisible();
           await expect(addEmployee.duplicateEmployeeIdError).toHaveText(
             "Employee Id already exists"
           );
