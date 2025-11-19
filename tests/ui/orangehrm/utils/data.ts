@@ -27,6 +27,11 @@ export interface LoginDetails {
   password: string;
 }
 
+export interface SearchEmployee {
+  name: string;
+  employeeId: number;
+}
+
 export const employee = {
   AddEmp: {
     firstName: "Kamran",
@@ -39,4 +44,9 @@ export const employee = {
     username: "kkamranvv",
     password: "kamik123",
   } as LoginDetails,
+
+  SearchEmp: {
+    name: "Kamran Musadirli",
+    employeeId: 999888,
+  } as SearchEmployee,
 };

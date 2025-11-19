@@ -1,0 +1,16 @@
+========== TABLE DEBUG LOG ==========
+DATA ROW TEXT:
+ dfgsjsjdh
+123445 34
+444444
+Cells in data row: 9
+DataCell[0] = ""
+DataCell[1] = "dfgsjsjdh"
+DataCell[2] = "123445 34"
+DataCell[3] = "444444"
+DataCell[4] = ""
+DataCell[5] = ""
+DataCell[6] = ""
+DataCell[7] = ""
+DataCell[8] = ""
+========== END DEBUG LOG ==========

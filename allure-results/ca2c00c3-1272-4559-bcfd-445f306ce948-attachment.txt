@@ -1,0 +1,13 @@
+========== TABLE DEBUG LOG ==========
+Rows found: 1
+First row text:
+ Id
+First (& Middle) Name
+Last Name
+Job Title
+Employment Status
+Sub Unit
+Supervisor
+Actions
+Cells in first row: 0
+========== END DEBUG LOG ==========

@@ -10,6 +10,8 @@ export class SearchEmployee {
   readonly supervisorName: Locator;
   readonly jobTitle: Locator;
   readonly subUnit: Locator;
+  readonly resetBtn: Locator;
+  readonly searchBtn: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -31,6 +33,22 @@ export class SearchEmployee {
     this.errorMessage = page.locator(
       ".oxd-text.oxd-text--p.oxd-alert-content-text"
     );
+
+    this.resetBtn = page.getByRole("button", { name: "Reset" });
+
+    this.searchBtn = page.getByRole("button", { name: "Search" });
+  }
+
+  async fillEmployeeName(name: string) {
+    await this.employeeName.fill(name);
+  }
+
+  async clickSearchBtn() {
+    await this.searchBtn.click();
+  }
+
+  async enterEmployeeId(employeeId: number) {
+    this.employeeId.fill(employeeId.toString());
   }
 
   async selectEmploymentStatus(option: string) {
