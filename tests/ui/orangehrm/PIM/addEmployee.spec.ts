@@ -1,13 +1,13 @@
-import { test, expect } from "../../../fixtures/orangehrm/fixtures.js";
-import { AddEmployee } from "../../../pages/orangehrm/PIM/AddEmployee.js";
-import { PIMPage } from "../../../pages/orangehrm/PIM/PIMpage.js";
-import { employee } from "./utils/data.js";
-import { negativeEmployeeCases } from "./utils/negativeEmployeeCases.js";
+import { test, expect } from "../../../../fixtures/orangehrm/fixtures.js";
+import { AddEmployee } from "../../../../pages/orangehrm/PIM/AddEmployee.js";
+import { PIMPage } from "../../../../pages/orangehrm/PIM/PIMpage.js";
+import { employee } from "../utils/data.js";
+import { negativeEmployeeCases } from "../utils/negativeEmployeeCases.js";
 
-test.describe("Add Employee", () => {
+test.describe("@orangehrm Add Employee", () => {
   test.skip(process.env.SKIP_ORANGEHRM === "true", "Skipping OrangeHRM tests");
 
-  test("Add Employee", async ({ page, login }) => {
+  test("@orangehrm Add Employee", async ({ page, login }) => {
     const pimPage = new PIMPage(login);
     await pimPage.goto();
     await pimPage.clickAddBtn();
@@ -36,7 +36,9 @@ test.describe("Add Employee", () => {
     await expect(personalDeatils).toBeVisible();
   });
 
-  test("Add Employee with creating login details", async ({ login }) => {
+  test("@orangehrm Add Employee with creating login details", async ({
+    login,
+  }) => {
     const pimPage = new PIMPage(login);
     await pimPage.goto();
     await pimPage.clickAddBtn();
@@ -61,9 +63,12 @@ test.describe("Add Employee", () => {
     await addEmployee.save();
   });
 
-  test.describe("Negative Add Employee Tests", () => {
+  test.describe("@orangehrm Negative Add Employee Tests", () => {
     for (const tcase of negativeEmployeeCases) {
-      test(`Add Employee – ${tcase.name}`, async ({ page, login }) => {
+      test(`@orangehrm Add Employee – ${tcase.name}`, async ({
+        page,
+        login,
+      }) => {
         const pimPage = new PIMPage(login);
         await pimPage.goto();
         await pimPage.clickAddBtn();

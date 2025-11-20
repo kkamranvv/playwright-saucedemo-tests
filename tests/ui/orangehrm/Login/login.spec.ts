@@ -1,8 +1,8 @@
 import { test, expect } from "@playwright/test";
-import { userData } from "./utils/data.js";
-import { LoginPage } from "../../../pages/orangehrm/LoginPage.js";
+import { userData } from "../utils/data.js";
+import { LoginPage } from "../../../../pages/orangehrm/LoginPage.js";
 
-test.describe("Login Tests", () => {
+test.describe("@orangehrm Login Tests", () => {
   test.skip(process.env.SKIP_ORANGEHRM === "true", "Skipping OrangeHRM tests");
 
   let loginPage: LoginPage;
@@ -12,7 +12,7 @@ test.describe("Login Tests", () => {
     await loginPage.goto();
   });
 
-  test("Successfull login with valid user", async ({ page }) => {
+  test("@orangehrm Successfull login with valid user", async ({ page }) => {
     await loginPage.loginValidUser(
       userData.validUser.username,
       userData.validUser.password
@@ -27,7 +27,7 @@ test.describe("Login Tests", () => {
     await page.waitForTimeout(3000);
   });
 
-  test("Login with invalid user", async ({ page }) => {
+  test("@orangehrm Login with invalid user", async ({ page }) => {
     await loginPage.loginInvalidUser(
       userData.invalidUser.username,
       userData.invalidUser.password

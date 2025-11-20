@@ -23,7 +23,7 @@ export const negativeEmployeeCases = [
     name: "duplicate employee id",
     firstName: employee.AddEmp.firstName,
     lastName: employee.AddEmp.lastName,
-    employeeId: 12345,
+    employeeId: 1235,
     employeePhoto: employee.AddEmp.employeePhoto,
     expectFieldError: false,
     expectGlobalError: true,
