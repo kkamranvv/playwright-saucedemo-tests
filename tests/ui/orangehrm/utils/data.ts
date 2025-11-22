@@ -1,3 +1,5 @@
+import { PassThrough } from "stream";
+
 export interface User {
   username: string;
   password: string;
@@ -49,4 +51,20 @@ export const employee = {
     name: "Kamran Musadirli",
     employeeId: 999888,
   } as SearchEmployee,
+};
+
+export interface AddUser {
+  username: string;
+  password: string;
+  confirmPassword: string;
+}
+
+let password = "kamran123";
+
+export const admin = {
+  addUserInfo: {
+    username: "kkamranvv" + Math.floor(Date.now() / 1000),
+    password: password,
+    confirmPassword: password,
+  },
 };
