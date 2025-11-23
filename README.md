@@ -17,13 +17,6 @@ This project combines:
 - ESLint + Husky — code quality & pre-commit checks
 - Allure Report
 
-## 🧪 Test Documentation
-
-All manual and automated test cases are documented in Testomat.io.
-You can explore the full list of test cases and descriptions below 👇
-
-[View Test Cases in Testomat.io](https://app.testomat.io/docs/projects/saucedemo-c35a9)
-
 ## 🌐 API Reference
 
 API tests are based on the [Reqres API](https://reqres.in/api-docs/) — a fake REST API for testing and prototyping.  
