@@ -1,5 +1,3 @@
-import { PassThrough } from "stream";
-
 export interface User {
   username: string;
   password: string;
@@ -66,5 +64,31 @@ export const admin = {
     username: "kkamranvv" + Math.floor(Date.now() / 1000),
     password: password,
     confirmPassword: password,
-  },
+  } as AddUser,
+};
+
+export interface CandidateInfo {
+  firstName: string;
+  middleName?: string | undefined;
+  lastName: string;
+  email: string;
+  contact: string;
+  resume: string;
+  keywords: string;
+  date: string;
+  notes: string;
+}
+
+export const candidate = {
+  addCandidateInfo: {
+    firstName: "Kamran",
+    middleName: "dds",
+    lastName: "Musadirli",
+    email: "kamrantest@gmail.com",
+    contact: "739438496",
+    resume: "tests/ui/orangehrm/files/testResume.docx",
+    keywords: "programmer, tester",
+    date: "2025-24-11",
+    notes: "Test Note",
+  } as CandidateInfo,
 };

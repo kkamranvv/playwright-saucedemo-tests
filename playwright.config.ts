@@ -23,6 +23,7 @@ export default defineConfig({
       name: "ui-tests",
       testDir: "./tests/ui/orangehrm",
       use: {
+        ignoreHTTPSErrors: true,
         baseURL: ENV.uiOrangeHRMUrl,
         ...devices["Desktop Chrome"],
       },

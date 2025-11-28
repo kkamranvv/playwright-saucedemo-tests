@@ -1,6 +1,6 @@
 import { test as base, Page } from "@playwright/test";
-import { LoginPage } from "../../pages/orangehrm/LoginPage.js";
-import { DashboardPage } from "../../pages/orangehrm/Dashboard.js";
+import { LoginPage } from "../../pages/orangehrm/Login/LoginPage.js";
+import { DashboardPage } from "../../pages/orangehrm/Dashboard/Dashboard.js";
 import { userData } from "../../tests/ui/orangehrm/utils/data.js";
 
 type Fixtures = {

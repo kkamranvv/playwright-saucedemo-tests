@@ -1,4 +1,4 @@
-import { employee } from "../utils/data.js";
+import { admin, employee } from "../utils/data.js";
 
 export const negativeEmployeeCases = [
   {
@@ -27,5 +27,68 @@ export const negativeEmployeeCases = [
     employeePhoto: employee.AddEmp.employeePhoto,
     expectFieldError: false,
     expectGlobalError: true,
+  },
+];
+
+export const negativeUserCases = [
+  {
+    name: "missing user role",
+    userRole: "",
+    employeeName: "Ranga Akunuri",
+    status: "Enabled",
+    username: admin.addUserInfo.username,
+    password: admin.addUserInfo.password,
+    confirmPassword: admin.addUserInfo.confirmPassword,
+    expectedError: "Required",
+  },
+  {
+    name: "missing employee name",
+    userRole: "ESS",
+    employeeName: "",
+    status: "Enabled",
+    username: admin.addUserInfo.username,
+    password: admin.addUserInfo.password,
+    confirmPassword: admin.addUserInfo.confirmPassword,
+    expectedError: "Required",
+  },
+  {
+    name: "missing status",
+    userRole: "ESS",
+    employeeName: "Ranga Akunuri",
+    status: "",
+    username: admin.addUserInfo.username,
+    password: admin.addUserInfo.password,
+    confirmPassword: admin.addUserInfo.confirmPassword,
+    expectedError: "Required",
+  },
+  {
+    name: "missing username",
+    userRole: "ESS",
+    employeeName: "Ranga Akunuri",
+    status: "Enabled",
+    username: "",
+    password: admin.addUserInfo.password,
+    confirmPassword: admin.addUserInfo.confirmPassword,
+    expectedError: "Required",
+  },
+  // {
+  //   name: "missing password",
+  //   userRole: "ESS",
+  //   employeeName: "Ranga Akunuri",
+  //   status: "Enabled",
+  //   username: admin.addUserInfo.username,
+  //   password: "",
+  //   confirmPassword: "",
+  //   expectedError: "Should have at least 7 characters",
+  // },
+  {
+    name: "passwords do not match",
+    userRole: "ESS",
+    employeeName: "Ranga Akunuri",
+    status: "Enabled",
+    username: admin.addUserInfo.username,
+    password: "Password1!",
+    confirmPassword: "Mismatch!",
+    expectedError: "Passwords do not match",
   },
 ];

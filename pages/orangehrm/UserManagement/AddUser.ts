@@ -56,7 +56,6 @@ export class AddUser {
     // USER ROLE
     await this.userRole.click();
 
-    // ждём пока раскроется dropdown
     await this.page.locator("//div[@role='listbox']").waitFor();
 
     await this.page
@@ -66,7 +65,6 @@ export class AddUser {
     // Employee Name
     await this.employeeName.fill("K");
 
-    // ждём появления вариантов
     await this.page.locator("//div[@role='listbox']").waitFor();
 
     const empOption = this.page.locator(
@@ -79,10 +77,9 @@ export class AddUser {
     // Status
     await this.status.click();
 
-    // ждём пока dropdown появится
     await this.page.locator("//div[@role='listbox']").waitFor();
 
-    // кликаем Enabled
+    // Enabled
     await this.statusEnabled.click();
 
     // Username
@@ -97,5 +94,66 @@ export class AddUser {
 
   async clickSaveBtn() {
     await this.saveBtn.click();
+  }
+
+  async addUserCustom(data: {
+    userRole: string;
+    employeeName: string;
+    status: string;
+    username: string;
+    password: string;
+    confirmPassword: string;
+  }) {
+    // USER ROLE
+    await this.userRole.click();
+    await this.page.locator("//div[@role='listbox']").waitFor();
+
+    if (data.userRole) {
+      await this.page
+        .locator(
+          `//div[@role='option' and normalize-space()='${data.userRole}']`
+        )
+        .click();
+    }
+
+    // EMPLOYEE NAME
+    if (data.employeeName) {
+      await this.employeeName.fill(data.employeeName);
+
+      // ждём дропдаун
+      await this.page.locator("//div[@role='listbox']").waitFor();
+
+      const empOption = this.page.locator(
+        `//div[@role='option']//span[normalize-space()='${data.employeeName}']`
+      );
+
+      await empOption.first().waitFor();
+      await empOption.first().click();
+    }
+
+    // STATUS
+    await this.status.click();
+    await this.page.locator("//div[@role='listbox']").waitFor();
+
+    if (data.status) {
+      await this.page
+        .locator(`//div[@role='option' and normalize-space()='${data.status}']`)
+        .click();
+    }
+
+    // USERNAME
+    if (data.username) {
+      await this.username.fill(data.username);
+    }
+
+    // PASSWORD
+    if (data.password) {
+      await this.password.fill(data.password);
+    }
+
+    // CONFIRM PASSWORD
+    if (data.confirmPassword) {
+      await this.confirmPassword.fill(data.confirmPassword);
+    }
   }
 }

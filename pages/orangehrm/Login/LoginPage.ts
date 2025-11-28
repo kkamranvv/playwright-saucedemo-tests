@@ -1,5 +1,5 @@
 import { Page, Locator } from "@playwright/test";
-import { ENV } from "../../env.js";
+import { ENV } from "../../../env.js";
 
 export class LoginPage {
   readonly page: Page;
