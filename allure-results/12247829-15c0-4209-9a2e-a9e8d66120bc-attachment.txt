@@ -1,0 +1,6 @@
+{
+  email: 'kamran@gmail.com',
+  firstName: 'Kamran',
+  lastName: 'Musadirli',
+  updatedAt: '2025-11-28T19:27:23.218Z'
+}
