@@ -50,5 +50,13 @@ export default defineConfig({
         },
       },
     },
+    {
+      name: "ui-tests-realworld",
+      testDir: "./tests/ui/realworld",
+      use: {
+        baseURL: "http://localhost:3000",
+        ...devices["Desktop Chrome"],
+      },
+    },
   ],
 });
