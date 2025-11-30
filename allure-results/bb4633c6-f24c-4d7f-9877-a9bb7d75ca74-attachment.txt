@@ -1,0 +1,5 @@
+{
+  clerkEmail: { email: 'user@example.com' },
+  id: '882',
+  createdAt: '2025-11-30T22:21:05.540Z'
+}
